@@ -1,6 +1,7 @@
 package com.pokemonreview.api.Controller;
 
 import com.pokemonreview.api.dto.PokemonDto;
+import com.pokemonreview.api.dto.PokemonResponse;
 import com.pokemonreview.api.models.Pokemon;
 
 import java.util.ArrayList;
@@ -23,10 +24,10 @@ public class PokemonController {
     private PokemonService pokemonService;
 
     @GetMapping("pokemon")
-    public List<PokemonDto> getPokemons(
+    public ResponseEntity<PokemonResponse> getPokemons(
             @RequestParam(value="pageNo" ,defaultValue = "0", required = false) int pageNo ,
             @RequestParam(value = "pageSize" , defaultValue = "10" , required = false) int pageSize){
-        return pokemonService.getAllPokemon(pageNo , pageSize);
+        return new ResponseEntity<>(pokemonService.getAllPokemon(pageNo , pageSize) , HttpStatus.OK) ;
 
     }
 

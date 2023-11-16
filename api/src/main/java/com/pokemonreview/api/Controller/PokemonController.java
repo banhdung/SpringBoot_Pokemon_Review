@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/")
 public class PokemonController {
+    private PokemonService pokemonService;
     @Autowired
     public PokemonController(PokemonService pokemonService) {
         this.pokemonService = pokemonService;
     }
 
-    private PokemonService pokemonService;
+
 
     @GetMapping("pokemon")
     public ResponseEntity<PokemonResponse> getPokemons(

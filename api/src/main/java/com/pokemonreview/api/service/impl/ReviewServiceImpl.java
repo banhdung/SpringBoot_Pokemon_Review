@@ -51,7 +51,7 @@ public class ReviewServiceImpl implements ReviewService {
         }
         review.setTitle(reviewDto.getTitle());
         review.setContent(reviewDto.getContent());
-        review.setStars(reviewDto.getStart());
+        review.setStars(reviewDto.getStars());
 
         Review updateReview = reviewRepository.save(review);
         return maptoDto(updateReview);
@@ -77,8 +77,8 @@ public class ReviewServiceImpl implements ReviewService {
         ReviewDto reviewDto = new ReviewDto();
         reviewDto.setId(review.getId());
         reviewDto.setContent(review.getContent());
-        reviewDto.setStart(review.getStars());
-        reviewDto.setContent(review.getContent());
+        reviewDto.setStars(review.getStars());
+        reviewDto.setTitle(review.getTitle());
         return reviewDto;
     }
 
@@ -87,7 +87,7 @@ public class ReviewServiceImpl implements ReviewService {
         review.setId(reviewDto.getId());
         review.setContent(reviewDto.getContent());
         review.setTitle(reviewDto.getTitle());
-        review.setStars(reviewDto.getStart());
+        review.setStars(reviewDto.getStars());
         return review;
     }
 }
